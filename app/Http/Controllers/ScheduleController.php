@@ -15,7 +15,7 @@ class ScheduleController extends Controller
     public function index()
     {
         $schedule = Schedule::all();
-        
+
         return response()->json($schedule, 200);
     }   
 
@@ -43,7 +43,7 @@ class ScheduleController extends Controller
         $schedule = Schedule::find($id);
 
         if($schedule === null){
-            return response()->json('Recurso não encontrado!', 200);
+            return response()->json('Recurso não encontrado!', 404);
         }
 
         return response()->json($schedule, 200);
@@ -61,12 +61,12 @@ class ScheduleController extends Controller
         $schedule = Schedule::find($id);
 
         if($schedule === null){
-            return response()->json(['erro' => 'O recurso solicitado não existe!']);
+            return response()->json(['erro' => 'O recurso solicitado não existe!'], 404);
         }
 
         $schedule->fill($request->all());
         $schedule->save();
-        return response()->json($schedule, 201);
+        return response()->json($schedule, 200);
 
     }
 
@@ -81,7 +81,7 @@ class ScheduleController extends Controller
         $schedule = Schedule::find($id);
 
         if($schedule === null){
-            return response()->json(['erro' => 'O recurso solicitado não existe!']);
+            return response()->json(['erro' => 'O recurso solicitado não existe!'], 404);
         }
 
         $schedule->delete();

@@ -42,7 +42,7 @@ class UserController extends Controller
         $user = User::find($id);
 
         if($user === null){
-            return response()->json(['erro' => 'O recurso solicitado não existe!']);
+            return response()->json(['erro' => 'O recurso solicitado não existe!'], 404);
         }
 
         return response()->json($user, 200);
@@ -60,12 +60,12 @@ class UserController extends Controller
         $user = User::find($id);
 
         if($user === null){
-            return response()->json(['erro' => 'O recurso solicitado não existe!']);
+            return response()->json(['erro' => 'O recurso solicitado não existe!'], 404);
         }
 
         $user->fill($request->all());
         $user->save();
-        return response()->json($user, 201);
+        return response()->json($user, 200);
 
     }
 
@@ -80,9 +80,9 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         if($user === null){
-            return response()->json(['erro' => 'O recurso solicitado não existe!']);
+            return response()->json(['erro' => 'O recurso solicitado não existe!'], 404);
         }
-        
+
         $user->delete();
         return response()->json('Usuário deletado com sucesso!', 200);
 

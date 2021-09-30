@@ -26,8 +26,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //adicionar validacao
         $user = User::create($request->all());
+
         return response()->json($user, 201);
     }
 
@@ -40,7 +40,12 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return response($user, 200);
+
+        if($user === null){
+            return response()->json(['erro' => 'O recurso solicitado não existe!']);
+        }
+
+        return response()->json($user, 200);
     }
 
     /**
@@ -53,6 +58,11 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
+
+        if($user === null){
+            return response()->json(['erro' => 'O recurso solicitado não existe!']);
+        }
+
         $user->fill($request->all());
         $user->save();
         return response()->json($user, 201);
@@ -68,6 +78,11 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
+
+        if($user === null){
+            return response()->json(['erro' => 'O recurso solicitado não existe!']);
+        }
+        
         $user->delete();
         return response()->json('Usuário deletado com sucesso!', 200);
 

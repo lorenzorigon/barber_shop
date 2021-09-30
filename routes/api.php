@@ -19,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('schedule', 'App\Http\Controllers\ScheduleController');
-//Route::apiResource('user', 'App\Http\Controllers\UserController');
+Route::apiResource('user', 'App\Http\Controllers\UserController');
 

@@ -14,18 +14,9 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        $schedule = Schedule::all();
+        return response()->json($schedule, 200);
+    }   
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +26,9 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //adicionar validacao
+        $schedule = Schedule::create($request->all());
+        return response()->json($schedule, 201);
     }
 
     /**
@@ -44,20 +37,10 @@ class ScheduleController extends Controller
      * @param  \App\Models\Schedule  $schedule
      * @return \Illuminate\Http\Response
      */
-    public function show(Schedule $schedule)
+    public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Schedule  $schedule
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Schedule $schedule)
-    {
-        //
+        $schedule = Schedule::find($id);
+        return response($schedule, 200);
     }
 
     /**
@@ -67,9 +50,13 @@ class ScheduleController extends Controller
      * @param  \App\Models\Schedule  $schedule
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Schedule $schedule)
+    public function update(Request $request, $id)
     {
-        //
+        $schedule = Schedule::find($id);
+        $schedule->fill($request->all());
+        $schedule->save();
+        return response()->json($schedule, 201);
+
     }
 
     /**
@@ -78,8 +65,11 @@ class ScheduleController extends Controller
      * @param  \App\Models\Schedule  $schedule
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Schedule $schedule)
+    public function destroy($id)
     {
-        //
+        $schedule = Schedule::findOrFail($id);
+        $schedule->delete();
+        return response()->json('Agendamento cancelado!', 200);
+
     }
 }

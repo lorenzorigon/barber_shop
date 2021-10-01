@@ -10002,3 +10002,21 @@ h3 {
     border-color: #dee2e6;
   }
 }
+
+/* Footer*/
+.footer{
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+
+.footer p{
+  color: white;
+  padding: 10px;
+}
+
+.content{
+  height: 100vh;
+}

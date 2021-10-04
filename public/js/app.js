@@ -2156,6 +2156,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['csrf_token'],
   mounted: function mounted() {//carrega elementos a partir do ciclo de vida da app
@@ -37953,23 +37954,35 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group row mb-0" }, [
-      _c("div", { staticClass: "col-md-8 offset-md-4" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-success", attrs: { type: "submit" } },
-          [
-            _vm._v(
-              "\n                                    Entrar\n                                "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("a", { staticClass: "btn btn-link", attrs: { href: "#" } }, [
+      _c(
+        "button",
+        { staticClass: "col-md btn btn-success", attrs: { type: "submit" } },
+        [
+          _vm._v(
+            "\n                                    Entrar\n                                "
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        { staticClass: "col-md btn btn-link mt-1", attrs: { href: "#" } },
+        [
           _vm._v(
             "\n                                    Esqueceu sua senha?\n                                "
           )
-        ])
-      ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        { staticClass: "col-md btn btn-link mt-1", attrs: { href: "#" } },
+        [
+          _vm._v(
+            "\n                                    Cadastrar-se\n                                "
+          )
+        ]
+      )
     ])
   }
 ]

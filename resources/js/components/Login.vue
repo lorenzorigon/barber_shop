@@ -37,14 +37,15 @@
                             </div>
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-success">
+                                    <button type="submit" class="col-md btn btn-success">
                                         Entrar
                                     </button>
-                                    <a class="btn btn-link" href="#">
+                                    <a class="col-md btn btn-link mt-1" href="#">
                                         Esqueceu sua senha?
                                     </a>
-                                </div>
+                                    <a class="col-md btn btn-link mt-1" href="#">
+                                        Cadastrar-se
+                                    </a>
                             </div>
                         </form>
                     </div>
